@@ -8,7 +8,7 @@
 module Network.Wai.Middleware.Gunzip (gunzip) where
 
 import Control.Exception (throwIO)
-import Network.HTTP.Types (hContentEncoding)
+import Network.HTTP.Types (Header, hContentEncoding)
 import Network.Wai (Middleware, Request, RequestBodyLength (ChunkedBody))
 
 import qualified Data.ByteString      as S
@@ -25,6 +25,7 @@ gunzip app rq k
         i <- Z.initInflate (Z.WindowBits 31)
         return $ rq { Wai.requestBody       = inflate i
                     , Wai.requestBodyLength = ChunkedBody -- FIXME
+                    , Wai.requestHeaders    = noGzip (Wai.requestHeaders rq)
                     }
 
     inflate i = Wai.requestBody rq >>= \b ->
@@ -41,3 +42,6 @@ gunzip app rq k
 
 isGzip :: Request -> Bool
 isGzip = maybe False ("gzip" ==) . lookup hContentEncoding . Wai.requestHeaders
+
+noGzip :: [Header] -> [Header]
+noGzip = filter (\(k, v) -> k /= hContentEncoding || v /= "gzip")

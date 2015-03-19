@@ -1,5 +1,5 @@
 name:                 wai-middleware-gunzip
-version:              0.0.1
+version:              0.0.2
 synopsis:             WAI middleware to unzip request bodies
 author:               Toralf Wittner
 maintainer:           Toralf Wittner <tw@dtex.org>

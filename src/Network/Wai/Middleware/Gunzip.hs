@@ -12,6 +12,7 @@ import Control.Exception (throwIO)
 import Data.IORef
 import Network.HTTP.Types (Header, hContentEncoding)
 import Network.Wai (Middleware, Request, RequestBodyLength (ChunkedBody))
+import Prelude
 
 import qualified Data.ByteString     as S
 import qualified Data.Streaming.Zlib as Z

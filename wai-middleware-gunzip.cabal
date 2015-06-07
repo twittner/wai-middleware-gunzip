@@ -7,10 +7,11 @@ copyright:            (C) 2015 Toralf Wittner
 homepage:             https://github.com/twittner/wai-middleware-gunzip
 bug-reports:          https://github.com/twittner/wai-middleware-gunzip/issues
 license:              MPL-2.0
+license-file:         LICENSE
 category:             Web
 build-type:           Simple
 cabal-version:        >= 1.10
-extra-source-files:   README.asciidoc, LICENSE
+extra-source-files:   README.asciidoc
 
 description:
     WAI middleware to transparently unzip request bodies.

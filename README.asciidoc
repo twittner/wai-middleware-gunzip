@@ -1,0 +1,10 @@
+= WAI Middleware Gunzip
+
+image:https://img.shields.io/badge/license-MPL_2.0-blue.svg["License: MPL-2.0", link="https://www.mozilla.org/MPL/2.0/"]
+image:https://travis-ci.org/twittner/wai-middleware-gunzip.svg?branch=master["Build Status", link="https://travis-ci.org/twittner/wai-middleware-gunzip"]
+
+This WAI middleware transparently unzips HTTP request bodies if
+a request header `Content-Encoding: gzip` is found.
+
+NOTE: Please note that the `requestBodyLength` is set to `ChunkedBody`
+if the body is unzipped since we do not know the uncompressed length yet.

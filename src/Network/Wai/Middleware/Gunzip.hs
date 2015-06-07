@@ -18,6 +18,12 @@ import qualified Data.ByteString     as S
 import qualified Data.Streaming.Zlib as Z
 import qualified Network.Wai         as Wai
 
+-- | This WAI middleware transparently unzips HTTP request bodies if
+-- a request header @Content-Encoding: gzip@ is found.
+--
+-- Please note that the 'requestBodyLength' is set to 'ChunkedBody'
+-- if the body is unzipped since we do not know the uncompressed
+-- length yet.
 gunzip :: Middleware
 gunzip app rq k
     | isGzip rq = prepare >>= flip app k

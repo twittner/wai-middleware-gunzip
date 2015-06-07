@@ -1,4 +1,4 @@
-= WAI Middleware Gunzip
+= Gunzip WAI middleware
 
 image:https://img.shields.io/badge/license-MPL_2.0-blue.svg["License: MPL-2.0", link="https://www.mozilla.org/MPL/2.0/"]
 image:https://travis-ci.org/twittner/wai-middleware-gunzip.svg?branch=master["Build Status", link="https://travis-ci.org/twittner/wai-middleware-gunzip"]
